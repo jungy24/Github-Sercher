@@ -7,15 +7,33 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TableViewCell: UITableViewCell {
 
     @IBOutlet var repoName: UILabel!
+    @IBOutlet var owner: UILabel!
+  
+    @IBOutlet var forkCount: UILabel!
+    @IBOutlet var starCount: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var avater: UIImageView!
+    @IBOutlet var star: UIImageView!
+    @IBOutlet var fork: UIImageView!
+    
     var repo: GithubRepo!
     {
         didSet
         {
             repoName.text = repo.name
+            owner.text = "by " + repo.ownerHandle!
+            star.image = #imageLiteral(resourceName: "star")
+            
+            avater.setImageWith(URL(string: "\(repo.ownerAvatarURL!)")!)
+            descriptionLabel.text = repo.about
+            forkCount.text = "\(repo.forks)"
+            starCount.text = "\(repo.stars)"
+            
         }
     }
     override func awakeFromNib() {
