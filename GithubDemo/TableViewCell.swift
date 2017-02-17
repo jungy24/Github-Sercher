@@ -28,11 +28,11 @@ class TableViewCell: UITableViewCell {
             repoName.text = repo.name
             owner.text = "by " + repo.ownerHandle!
             star.image = #imageLiteral(resourceName: "star")
-            
+            fork.image = #imageLiteral(resourceName: "fork")
             avater.setImageWith(URL(string: "\(repo.ownerAvatarURL!)")!)
             descriptionLabel.text = repo.about
-            forkCount.text = "\(repo.forks)"
-            starCount.text = "\(repo.stars)"
+            forkCount.text = "\(repo.forks!)"
+            starCount.text = "\(repo.stars!)"
             
         }
     }

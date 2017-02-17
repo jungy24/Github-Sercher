@@ -33,6 +33,7 @@ class RepoResultsViewController: UIViewController,UITableViewDelegate,UITableVie
         
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
+ 
         
         // Perform the first search when the view controller first loads
         
